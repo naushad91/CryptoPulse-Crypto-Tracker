@@ -1,0 +1,33 @@
+//
+//  CryptoTrackerApp.swift
+//  CryptoTracker
+//
+//  Created by Naushad Ali Khan on 01/12/25.
+//
+
+import SwiftUI
+
+//@main
+//struct MyApp: App {
+//    var body: some Scene {
+//        WindowGroup {
+//            NavigationView {    // modern replacement for NavigationView
+//                HomeView()
+//                    .navigationBarHidden(true) // hide the navigation bar on this screen
+//            }
+//        }
+//    }
+//}
+
+import SwiftUI
+
+@main
+struct MyApp: App {
+    var body: some Scene {
+        WindowGroup {
+            NavigationStack {
+                HomeView()    // no need to hide here
+            }
+        }
+    }
+}
