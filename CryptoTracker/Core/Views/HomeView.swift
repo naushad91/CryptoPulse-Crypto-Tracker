@@ -21,30 +21,7 @@ struct HomeView: View {
             
             // content layer
             VStack {
-                HStack {
-                    CircleButtonView(iconName: showPortfolio ? "plus": "info")
-                        .animation(.none, value: showPortfolio)
-                        .background(CircleButtonAnimationView(animate: $showPortfolio))
-                    Spacer()
-                    
-                    Text("Live Prices")
-                        .font(.headline)
-                        .fontWeight(.heavy)
-                        .foregroundColor(Color.theme.accent)
-                    
-                    Spacer()
-                    
-                    CircleButtonView(iconName: "chevron.right")
-                        .rotationEffect(
-                            Angle(degrees: showPortfolio ? 180 : 0)
-                        )
-                        .onTapGesture {
-                            withAnimation(.spring()) {
-                                showPortfolio.toggle()
-                            }
-                        }
-                }
-                .padding(.horizontal)
+                homeheader
                 Spacer(minLength: 0)
 
             }
@@ -57,5 +34,34 @@ struct HomeView: View {
 #Preview {
     NavigationStack {
         HomeView()
+    }
+}
+
+extension HomeView{
+    private var homeheader:some View{
+        HStack {
+            CircleButtonView(iconName: showPortfolio ? "plus": "info")
+                .animation(.none, value: showPortfolio)
+                .background(CircleButtonAnimationView(animate: $showPortfolio))
+            Spacer()
+            
+            Text("Live Prices")
+                .font(.headline)
+                .fontWeight(.heavy)
+                .foregroundColor(Color.theme.accent)
+            
+            Spacer()
+            
+            CircleButtonView(iconName: "chevron.right")
+                .rotationEffect(
+                    Angle(degrees: showPortfolio ? 180 : 0)
+                )
+                .onTapGesture {
+                    withAnimation(.spring()) {
+                        showPortfolio.toggle()
+                    }
+                }
+        }
+        .padding(.horizontal)
     }
 }
