@@ -23,11 +23,15 @@ import SwiftUI
 
 @main
 struct MyApp: App {
+    
+    @StateObject private var vm = HomeViewModel()
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                HomeView()    // no need to hide here
+                HomeView()
             }
+            .environmentObject(vm)   // 🔥 Inject ViewModel here
         }
     }
 }
